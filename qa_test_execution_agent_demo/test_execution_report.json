@@ -1,0 +1,190 @@
+{
+  "report_title": "Sample Web Application Test Execution Report",
+  "environment": "QA / staging (fictional demo data)",
+  "build": "web-app-2.8.0-rc3",
+  "execution_date": "2026-10-22",
+  "note": "All test results and logs are fictional training data, not real production findings.",
+  "summary": {
+    "total": 25,
+    "passed": 18,
+    "failed": 5,
+    "skipped": 2
+  },
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "test_case": "Login with valid credentials",
+      "status": "PASS",
+      "area": "Authentication",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-002",
+      "test_case": "Login with invalid password",
+      "status": "PASS",
+      "area": "Authentication",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-003",
+      "test_case": "Login with unregistered email",
+      "status": "PASS",
+      "area": "Authentication",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-004",
+      "test_case": "Password reset with registered email",
+      "status": "PASS",
+      "area": "Account Recovery",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-005",
+      "test_case": "Password reset with unregistered email",
+      "status": "PASS",
+      "area": "Account Recovery",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-006",
+      "test_case": "Expired password reset link",
+      "status": "FAIL",
+      "area": "Account Recovery",
+      "failure_log": "Reset token accepted after expiry; user password was changed using an expired token. Evidence: POST /api/password/reset returned 200; expected 400 TOKEN_EXPIRED."
+    },
+    {
+      "test_case_id": "TC-007",
+      "test_case": "Password reset with malformed token",
+      "status": "PASS",
+      "area": "Account Recovery",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-008",
+      "test_case": "Account lockout after repeated failed logins",
+      "status": "FAIL",
+      "area": "Authentication",
+      "failure_log": "After 10 failed login attempts, account remained accessible to further password guesses. POST /api/login returned 401 but no lockout/rate-limit response was observed. Security control may be missing."
+    },
+    {
+      "test_case_id": "TC-009",
+      "test_case": "Logout invalidates session",
+      "status": "PASS",
+      "area": "Session Management",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-010",
+      "test_case": "Session expires after inactivity",
+      "status": "PASS",
+      "area": "Session Management",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-011",
+      "test_case": "User profile displays correct details",
+      "status": "PASS",
+      "area": "Profile",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-012",
+      "test_case": "Update profile with valid data",
+      "status": "PASS",
+      "area": "Profile",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-013",
+      "test_case": "Update profile with invalid email",
+      "status": "FAIL",
+      "area": "Profile",
+      "failure_log": "PUT /api/profile returned 500 for malformed email instead of validation response 400. Stack trace includes ValidationError not handled by API layer."
+    },
+    {
+      "test_case_id": "TC-014",
+      "test_case": "Unauthenticated access to profile API",
+      "status": "FAIL",
+      "area": "Security",
+      "failure_log": "GET /api/profile returned 200 and included the current user's profile without an Authorization header. Potential broken access control / authentication bypass."
+    },
+    {
+      "test_case_id": "TC-015",
+      "test_case": "User cannot access another user's profile",
+      "status": "PASS",
+      "area": "Security",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-016",
+      "test_case": "Search products by keyword",
+      "status": "PASS",
+      "area": "Catalog",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-017",
+      "test_case": "Filter products by price range",
+      "status": "PASS",
+      "area": "Catalog",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-018",
+      "test_case": "Add product to cart",
+      "status": "PASS",
+      "area": "Cart",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-019",
+      "test_case": "Update cart quantity",
+      "status": "PASS",
+      "area": "Cart",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-020",
+      "test_case": "Checkout with valid payment",
+      "status": "FAIL",
+      "area": "Checkout",
+      "failure_log": "Checkout returned 500 after payment provider responded APPROVED. Order status remained UNKNOWN; payment/order consistency is unclear. Correlation ID: chk-7841."
+    },
+    {
+      "test_case_id": "TC-021",
+      "test_case": "Checkout with declined payment",
+      "status": "PASS",
+      "area": "Checkout",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-022",
+      "test_case": "Prevent duplicate order submission",
+      "status": "PASS",
+      "area": "Checkout",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-023",
+      "test_case": "Inventory updated after purchase",
+      "status": "PASS",
+      "area": "Inventory",
+      "failure_log": ""
+    },
+    {
+      "test_case_id": "TC-024",
+      "test_case": "Responsive layout on mobile viewport",
+      "status": "SKIPPED",
+      "area": "UI",
+      "failure_log": "Skipped: mobile browser environment unavailable in this run."
+    },
+    {
+      "test_case_id": "TC-025",
+      "test_case": "Accessibility smoke check",
+      "status": "SKIPPED",
+      "area": "Accessibility",
+      "failure_log": "Skipped: accessibility scanner dependency was unavailable."
+    }
+  ]
+}

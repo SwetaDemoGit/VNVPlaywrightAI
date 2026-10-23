@@ -1,0 +1,18 @@
+SAMPLE EMPLOYEE HANDBOOK — FOR TRAINING DEMONSTRATION ONLY
+
+LEAVE POLICY
+Employees are entitled to 12 casual leave days per calendar year. Casual leave must be requested through the HR portal. Manager approval is required before casual leave is taken. Unused casual leave cannot be carried forward to the next calendar year. Employees should check the HR portal for their current leave balance.
+
+COMPANY LAPTOP POLICY
+Employees must use company-approved laptops for official work. Lost or stolen company laptops must be reported to IT Support immediately. Employees must not install unapproved software on company-owned devices.
+
+PASSWORD AND ACCOUNT SECURITY
+Employees must never share their passwords with colleagues or anyone else. Passwords should be unique and must not be reused across company systems. Multi-factor authentication is required for company accounts. Suspicious login activity should be reported to IT Support.
+
+IT SUPPORT
+Employees can contact IT Support through the internal helpdesk portal. For urgent access issues, employees should raise a high-priority support ticket. Include a clear description of the issue and the affected application in the ticket.
+
+REMOTE WORK
+Remote work arrangements require approval from the employee's manager and must follow the team's current working arrangement. This sample handbook does not specify a monetary work-from-home allowance.
+
+END OF SAMPLE

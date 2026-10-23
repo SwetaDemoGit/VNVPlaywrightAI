@@ -1,0 +1,7 @@
+{
+  "TC-006": "Reset token accepted after expiry; user password was changed using an expired token. Evidence: POST /api/password/reset returned 200; expected 400 TOKEN_EXPIRED.",
+  "TC-008": "After 10 failed login attempts, account remained accessible to further password guesses. POST /api/login returned 401 but no lockout/rate-limit response was observed. Security control may be missing.",
+  "TC-013": "PUT /api/profile returned 500 for malformed email instead of validation response 400. Stack trace includes ValidationError not handled by API layer.",
+  "TC-014": "GET /api/profile returned 200 and included the current user's profile without an Authorization header. Potential broken access control / authentication bypass.",
+  "TC-020": "Checkout returned 500 after payment provider responded APPROVED. Order status remained UNKNOWN; payment/order consistency is unclear. Correlation ID: chk-7841."
+}

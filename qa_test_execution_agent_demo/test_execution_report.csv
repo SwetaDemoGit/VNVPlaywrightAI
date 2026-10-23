@@ -1,0 +1,26 @@
+test_case_id,test_case,status,area,failure_log
+TC-001,Login with valid credentials,PASS,Authentication,
+TC-002,Login with invalid password,PASS,Authentication,
+TC-003,Login with unregistered email,PASS,Authentication,
+TC-004,Password reset with registered email,PASS,Account Recovery,
+TC-005,Password reset with unregistered email,PASS,Account Recovery,
+TC-006,Expired password reset link,FAIL,Account Recovery,Reset token accepted after expiry; user password was changed using an expired token. Evidence: POST /api/password/reset returned 200; expected 400 TOKEN_EXPIRED.
+TC-007,Password reset with malformed token,PASS,Account Recovery,
+TC-008,Account lockout after repeated failed logins,FAIL,Authentication,"After 10 failed login attempts, account remained accessible to further password guesses. POST /api/login returned 401 but no lockout/rate-limit response was observed. Security control may be missing."
+TC-009,Logout invalidates session,PASS,Session Management,
+TC-010,Session expires after inactivity,PASS,Session Management,
+TC-011,User profile displays correct details,PASS,Profile,
+TC-012,Update profile with valid data,PASS,Profile,
+TC-013,Update profile with invalid email,FAIL,Profile,PUT /api/profile returned 500 for malformed email instead of validation response 400. Stack trace includes ValidationError not handled by API layer.
+TC-014,Unauthenticated access to profile API,FAIL,Security,GET /api/profile returned 200 and included the current user's profile without an Authorization header. Potential broken access control / authentication bypass.
+TC-015,User cannot access another user's profile,PASS,Security,
+TC-016,Search products by keyword,PASS,Catalog,
+TC-017,Filter products by price range,PASS,Catalog,
+TC-018,Add product to cart,PASS,Cart,
+TC-019,Update cart quantity,PASS,Cart,
+TC-020,Checkout with valid payment,FAIL,Checkout,Checkout returned 500 after payment provider responded APPROVED. Order status remained UNKNOWN; payment/order consistency is unclear. Correlation ID: chk-7841.
+TC-021,Checkout with declined payment,PASS,Checkout,
+TC-022,Prevent duplicate order submission,PASS,Checkout,
+TC-023,Inventory updated after purchase,PASS,Inventory,
+TC-024,Responsive layout on mobile viewport,SKIPPED,UI,Skipped: mobile browser environment unavailable in this run.
+TC-025,Accessibility smoke check,SKIPPED,Accessibility,Skipped: accessibility scanner dependency was unavailable.
